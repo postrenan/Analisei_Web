@@ -1,7 +1,5 @@
 # Analisei Web - Documentação de Segurança e Arquitetura
 
-Este documento fornece uma visão geral técnica do sistema **Analisei Web**, com foco em aspectos de segurança, privacidade de dados e conformidade para avaliação por equipes de Cybersecurity.
-
 ## 1. Visão Geral do Sistema
 
 O **Analisei Web** é uma aplicação **Client-Side (Single Page Application)** desenvolvida para auxiliar na análise rápida de contratos e documentos textuais. O sistema permite a importação de arquivos (PDF, DOCX, TXT), extração de texto e busca automatizada por palavras-chave definidas pelo usuário.
