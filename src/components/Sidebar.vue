@@ -2,6 +2,12 @@
 import { useMainStore } from '@/stores/mainStore'
 import { ref } from 'vue'
 
+const props = defineProps({
+  mobile: {
+    type: Boolean,
+    default: false
+  }
+})
 const store = useMainStore()
 const newKeyword = ref('')
 const emit = defineEmits(['navigate'])
@@ -19,8 +25,8 @@ function removeKw(kw) {
 </script>
 
 <template>
-  <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-light border-end" style="width: 280px; height: 100vh; overflow-y: auto;">
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+  <div class="sidebar d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary h-100 overflow-y-auto">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
       <span class="fs-4 fw-bold">Analisei</span>
     </a>
     <hr>
@@ -28,17 +34,17 @@ function removeKw(kw) {
     <!-- Navigation -->
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a href="#" class="nav-link active" @click.prevent="$emit('navigate', 'analysis')">
+        <a href="#" class="nav-link active" @click.prevent="$emit('navigate', 'analysis')" :data-bs-dismiss="mobile ? 'offcanvas' : null">
           <i class="bi bi-file-earmark-text"></i> Análise
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link link-dark" @click.prevent="$emit('navigate', 'history')">
+        <a href="#" class="nav-link link-body-emphasis" @click.prevent="$emit('navigate', 'history')" :data-bs-dismiss="mobile ? 'offcanvas' : null">
           <i class="bi bi-clock-history"></i> Histórico
         </a>
       </li>
        <li>
-        <a href="#" class="nav-link link-dark" @click.prevent="$emit('navigate', 'debug')">
+        <a href="#" class="nav-link link-body-emphasis" @click.prevent="$emit('navigate', 'debug')" :data-bs-dismiss="mobile ? 'offcanvas' : null">
           <i class="bi bi-bug"></i> Debug
         </a>
       </li>
@@ -74,7 +80,7 @@ function removeKw(kw) {
             <button class="btn btn-primary" type="button" @click="addKw">+</button>
         </div>
         
-        <div class="keywords-list border rounded p-2 bg-white" style="max-height: 200px; overflow-y: auto;">
+        <div class="keywords-list border rounded p-2 bg-body" style="max-height: 200px; overflow-y: auto;">
             <div v-if="store.keywords.length === 0" class="text-muted small">Nenhuma palavra.</div>
             <div v-for="kw in store.keywords" :key="kw" class="d-flex justify-content-between align-items-center mb-1">
                 <span class="small">{{ kw }}</span>

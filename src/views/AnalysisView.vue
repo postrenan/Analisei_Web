@@ -64,18 +64,18 @@ async function processFiles() {
   <div class="container-fluid p-4 h-100 d-flex flex-column">
       <!-- Controls -->
       <div class="card p-3 mb-3 shadow-sm">
-          <div class="row align-items-center">
-              <div class="col-auto">
+          <div class="row align-items-center g-3">
+              <div class="col-12 col-md-auto">
                   <input type="file" multiple ref="fileInput" @change="handleFileChange" class="d-none" accept=".pdf,.docx,.txt">
-                  <button class="btn btn-outline-primary" @click="triggerSelect">Files 📂</button>
+                  <button class="btn btn-outline-primary w-100 w-md-auto" @click="triggerSelect">Files 📂</button>
               </div>
-              <div class="col-auto">
-                    <button class="btn btn-success" @click="processFiles" :disabled="processing || selectedFiles.length === 0">
+              <div class="col-12 col-md-auto">
+                    <button class="btn btn-success w-100 w-md-auto" @click="processFiles" :disabled="processing || selectedFiles.length === 0">
                         {{ processing ? 'Processando...' : 'PROCESSAR ARQUIVOS' }}
                     </button>
               </div>
-               <div class="col-auto">
-                    <span class="text-muted">{{ statusMessage }}</span>
+               <div class="col-12 col-md-auto">
+                    <span class="text-muted d-block text-center text-md-start">{{ statusMessage }}</span>
               </div>
           </div>
       </div>
